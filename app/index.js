@@ -3,7 +3,6 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
-
 var PancakesGenerator = module.exports = function PancakesGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
@@ -22,11 +21,30 @@ PancakesGenerator.prototype.askFor = function askFor() {
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
+    /*
+
+    desired flow:
+
+    1. check to see if already in generated project (i.e. package.json exists)
+        - if so, display options for sub generators
+        - if now, ask questions to do initial generation
+            - create directories, create files with defaults
+    2. for sub-generators
+        - add app
+        - add resource
+
+
+     */
+
+
+
+
+
   var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
+    'type': 'confirm',
+    'name': 'someOption',
+    'message': 'Would you like to enable this option?',
+    'default': true
   }];
 
   this.prompt(prompts, function (props) {
@@ -34,6 +52,8 @@ PancakesGenerator.prototype.askFor = function askFor() {
 
     cb();
   }.bind(this));
+
+
 };
 
 PancakesGenerator.prototype.app = function app() {
