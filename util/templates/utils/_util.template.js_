@@ -1,0 +1,12 @@
+/**
+ * Util for <%= name %>
+ */
+module.exports = function () {
+    // @module({ "server": true, "client": false })
+    // @server()
+    // @client()
+
+    return {
+
+    };
+};

@@ -1,0 +1,9 @@
+{
+  "name": "AnApp",
+  "version": "0.0.1",
+  "description": "Some pancakes app",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.10"
+  }
+}

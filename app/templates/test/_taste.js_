@@ -1,0 +1,47 @@
+/**
+ * Copyright 2014 GetHuman LLC
+ * Author: Jeff Whelpley
+ * Date: 2/10/14
+ *
+ * This is a wrapper for all libs needed for testing
+ */
+var q               = require('q');
+var sinon           = require('sinon');
+var chai            = require('chai');
+var should          = chai.should();
+var sinonChai       = require('sinon-chai');
+var chaiAsPromised  = require("chai-as-promised");
+var mochaAsPromised = require("mocha-as-promised");
+var mongoose        = require('mongoose');
+var ObjectId        = mongoose.Types.ObjectId;
+var Mixed           = mongoose.Types.Mixed;
+
+module.exports = {
+
+    /**
+     * This should be run at the top of each test
+     */
+    getReady: function () {
+        mochaAsPromised();
+        chai.use(sinonChai);
+        chai.use(chaiAsPromised);
+    },
+
+    /**
+     * Used to wrap all promises
+     * @param promises
+     * @param done Optional param if it exists, will do notify at end
+     * @returns {*|Promise.<Array.<Object>>}
+     */
+    all: function (promises, done) {
+        return done ? q.all(promises).should.notify(done) : q.all(promises);
+    },
+
+    should: should,
+    dataType: {
+        ObjectId: ObjectId,
+        Mixed: Mixed
+    }
+};
+
+

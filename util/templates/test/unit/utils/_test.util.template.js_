@@ -1,0 +1,14 @@
+/**
+ * Unit test for <%= name %>
+ */
+var target      = require('../../../utils/<%= name %>');
+var <%= name %> = target();
+
+var taste = require('../../taste');
+taste.getReady();
+
+describe('UNIT utils/<%= name %>', function() {
+    it('should do something', function () {
+
+    });
+});

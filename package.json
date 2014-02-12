@@ -12,7 +12,7 @@
     "email": "",
     "url": "https://github.com/gethuman"
   },
-  "main": "app/index.js",
+  "main": "app/generator.pancakes.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/gethuman/generator-pancakes.git"
@@ -21,7 +21,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.14.0"
+    "yeoman-generator": "~0.14.0",
+    "pancakes": "0.0.2"
   },
   "devDependencies": {
     "mocha": "~1.14.0"

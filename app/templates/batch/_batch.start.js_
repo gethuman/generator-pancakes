@@ -1,0 +1,27 @@
+/**
+ *  batch start
+ */
+var moment = require('moment');
+
+var getRunDates = function (options) {
+    options = options || {};
+
+    var endDate = new Date();
+    var runDays = options['runDays'] || 1;
+
+    if (options.runDate) {
+        endDate = moment(options.runDate, 'MM/DD/YYYY').toDate();
+    }
+
+    var startDate = moment(endDate).subtract('days', runDays).toDate();
+    startDate.setHours(0,0,0,0);
+
+    return {
+        startDate: startDate,
+        endDate: endDate
+    };
+};
+
+module.exports = {
+    getRunDates: getRunDates
+};
