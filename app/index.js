@@ -7,15 +7,17 @@ var yeoman  = require('yeoman-generator');
 
 /**
  * Constructor for our Pancakes Generator
+ * @param args
+ * @param options
  */
-var PancakesGenerator = function (args, options, config) {
-  yeoman.generators.Base.apply(this, arguments);
+var PancakesGenerator = function (args, options) {
+    yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
+    this.on('end', function () {
+        this.installDependencies({ skipInstall: options['skip-install'] });
+    });
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+    this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 // inherit from yeoman base
@@ -39,7 +41,7 @@ PancakesGenerator.prototype.askFor = function () {
     this.prompt(prompts, function (props) {
 
         if (!props.initialCheck) {
-            console.log('Thanks for using pancakes! Exiting now.')
+            console.log('Thanks for using pancakes! Exiting now.');
             process.exit(1);
         }
 
