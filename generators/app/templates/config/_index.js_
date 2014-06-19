@@ -1,0 +1,19 @@
+/**
+ * Figure out which config file to use
+ */
+var lodash      = require('lodash');
+var path        = require('path');
+var nconf       = require('nconf');
+var env         = require('./env');
+var environment = process.env['NODE_ENV'] || 'dev';
+var envVars     = lodash.extend({}, env.base, env[environment]);
+
+try {
+    nconf.argv().env().defaults({ NODE_PATH: __dirname }).overrides(envVars);
+    environment = environment || env.NODE_ENV;
+}
+catch(e) {
+    nconf.argv().env().defaults({ NODE_PATH: __dirname });
+}
+
+module.exports  = require('./config.' + environment);

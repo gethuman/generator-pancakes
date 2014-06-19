@@ -1,0 +1,6 @@
+/**
+ * Layout styles
+ */
+@import '../../common/styles/mixins';
+
+/* styles for layout here */

@@ -1,0 +1,85 @@
+/**
+ * Build file for pancakes apps
+ */
+var gulp        = require('gulp');
+var mocha       = require('gulp-mocha');
+var jshint      = require('gulp-jshint');
+var pancakes    = require('gulp-pancakes');
+var clean       = require('gulp-clean');
+var concat      = require('gulp-concat');
+var uglify      = require('gulp-uglify');
+var rename      = require('gulp-rename');
+var streamqueue = require('streamqueue');
+var eventStream = require('event-stream');
+var _           = require('lodash');
+var fs          = require('fs');
+var path        = require('path');
+var apps        = fs.readdirSync(path.join(__dirname, '/app'));
+
+// initialize pancakes
+var pancakesOpts = {
+    rootDir: __dirname,
+    require: require,
+    preload: ['utils'],
+    defaultTransformOptions: {
+        ngPrefix: 'gh',
+        clientType: 'ng',
+        ngType: 'factory',
+        transformer: 'basic',
+        appName: 'commonApp'
+    }
+};
+
+pancakes.init(pancakesOpts);
+
+/*************************************** ******************************************/
+/*********************************** TESTING **************************************/
+/*************************************** ******************************************/
+
+gulp.task('jshint', function () {
+    return gulp.src(['app/**/*.js', 'batch/**/*.js', 'middleware/**/*.js',
+        'services/**/*.js', 'test/**/*.js', 'transformers/**/*.js', 'utils/**/*.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
+// unit test tasks here
+
+/*************************************** ******************************************/
+/*********************************** JAVASCRIPT ***********************************/
+/*************************************** ******************************************/
+
+// put code to build JS here
+
+/*************************************** ******************************************/
+/************************************* CSS ****************************************/
+/*************************************** ******************************************/
+
+// code to generate css here
+
+/*************************************** ******************************************/
+/************************************ ASSETS **************************************/
+/*************************************** ******************************************/
+
+gulp.task('img', function () { gulp.src(['assets/img/*']).pipe(gulp.dest('./dist/img')); });
+gulp.task('html', function () { gulp.src(['assets/html/*']).pipe(gulp.dest('./dist/html')); });
+gulp.task('font', function () { gulp.src(['assets/fonts/*']).pipe(gulp.dest('./dist/fonts')); });
+
+/*************************************** ******************************************/
+/******************************* DEV ENVIRONMENT **********************************/
+/*************************************** ******************************************/
+
+gulp.task('clear', function () { return gulp.src('dist/*').pipe(clean({ read: false})); });
+gulp.task('clearCache', function () { pancakes.init(pancakesOpts); });
+gulp.task('devrefresh', ['img', 'font', 'html']);
+gulp.task('default', ['jshint']);
+
+/*************************************** ******************************************/
+/********************************** DEPLOYEMNT ************************************/
+/*************************************** ******************************************/
+
+// TBD
+
+
+
+

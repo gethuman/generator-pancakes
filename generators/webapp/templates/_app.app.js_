@@ -1,0 +1,11 @@
+/**
+ * App config file for the common app
+ */
+module.exports = function () {
+    return {
+        clientDependencies:     [],
+        clientEvalAttributes:   [],
+        attachToScope:          [],
+        attachToClientScope:    []
+    };
+};

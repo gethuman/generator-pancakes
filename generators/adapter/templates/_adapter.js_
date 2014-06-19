@@ -1,0 +1,26 @@
+/**
+ * Adapter implementation
+ */
+module.exports = function (Q, _, BaseAdapter) {
+
+    /**
+     * Inherit from BaseAdapter
+     * @constructor
+     */
+    var AdapterNameAdapter = function () {
+        BaseAdapter.apply(this);
+    };
+
+    _.extend(AdapterNameAdapter.prototype, BaseAdapter.prototype);
+
+    /**
+     * Example method attached to adapter
+     */
+    AdapterNameAdapter.prototype.find = function (req) {
+
+        return new Q({});
+    };
+
+    // return the class
+    return AdapterNameAdapter;
+};

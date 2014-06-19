@@ -1,0 +1,13 @@
+/**
+ *
+ */
+module.exports = function () {
+
+    // change this with any param mapping and whether client and/or server
+    // @module({ "client": true, "server": true })
+
+    // object exported from this utility
+    return {
+
+    };
+};

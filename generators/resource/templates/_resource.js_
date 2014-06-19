@@ -1,0 +1,182 @@
+/**
+ * Resource file
+ */
+module.exports = function (_, fieldsets) {
+    return {
+
+        // the name will be the name of the database collection as well as the name of the API resource
+        name:           'resourceName',
+
+        // this flag can be used to indicate that changes should be kept in an audit table
+        audit:          false,
+
+        // default adapters for different containers (ex for api container default adapter is persist)
+        adapters: {
+            api:        'persist',
+            batch:      'persist',
+            webserver:  'restapi',
+            browser:    'restapi'
+        },
+
+        // each adapter has a set of methods that can be exposed
+        methods: {
+            persist:    ['find', 'findById', 'create', 'update', 'remove'],
+            restapi:    ['find', 'findById', 'create', 'update', 'remove'],
+            realtime:   ['save', 'remove'],
+            search:     ['save', 'find', 'remove']
+        },
+
+        // for each method, there are required and options params
+        params: {
+            find:               { required: ['where'], optional: ['select', 'skip', 'limit', 'sort', 'findOne'] },
+            findById:           { required: ['_id'], optional: ['select'] },
+            create:             { required: ['data'] },
+            update:             { eitheror: ['where', '_id'], required: ['data'], optional: ['select', 'multi', 'noaudit'] },
+            remove:             { optional: ['host', 'token', 'url', 'data', 'multi', '_id', 'where'] }
+        },
+
+        // this defines the mapping from API endpoint to the service methods
+        api: {
+            GET: {
+                '/posts':       'find',
+                '/posts/{_id}': 'findById'
+            },
+            POST: {
+                '/posts':       'create'
+            },
+            PUT: {
+                '/posts/{_id}': 'update'
+            },
+            DELETE: {
+                '/posts/{_id}': 'remove'
+            }
+        },
+
+        // schema for mongo
+        fields: _.extend({}, fieldsets.page, fieldsets.workflow, {
+            title:              String
+
+            // other field definitions (for mongo adapter, follows mongoose syntax)
+        }),
+
+        // database indexes (for mongo, in mongoose syntax)
+        indexes: [
+            {
+                fields:     { modifyDate: 1, type: 1 },
+                options:    { name: 'modifyDate_1_type_1' }
+            }
+        ],
+
+        // security restrictions on a method by method basis (using fakeblock.js syntax)
+        acl: {
+            create: {
+                access:             ['admin', 'user', 'visitor'],
+                data: {
+                    restricted: {
+                        user:           ['answers', 'comments'],
+                        visitor:        ['answers', 'comments']
+                    }
+                },
+                values: {
+                    restricted: {
+                        visitor:    { type: ['question', 'answer', 'comment' ] }
+                    }
+                }
+            },
+            find: {
+                access:             ['admin', 'user', 'visitor'],
+                select: {
+                    restricted: {
+                        user:       ['author', 'modifyUserId', 'modifyUserType'],
+                        visitor:    ['author', 'modifyUserId', 'modifyUserType']
+                    },
+                    'default': {
+                        user:       ['-author', '-modifyUserId', '-modifyUserType'],
+                        visitor:    ['-author', '-modifyUserId', '-modifyUserType']
+                    }
+                },
+                where: {
+                    allowed: {
+                        allroles:   ['_id', 'parentId', 'createUserId', 'title', 'type',
+                            'status', 'match', 'urlId', 'tags', 'company', 'offeringName',
+                            'companySlug', 'offeringSlug', 'tags.slug']
+                    }
+                },
+                sort: {
+                    allowed: {
+                        allroles:   ['createDate', 'stats.votes.sum']
+                    }
+                }
+            },
+            update: {
+                access:             ['admin', 'user', 'visitor'],
+                where: {
+                    onlyMine: {
+                        roles:      ['user', 'visitor'],
+                        field:      'createUserId'
+                    },
+                    allowed: {
+                        allroles:   ['_id', 'createUserId'],
+                        admin:      ['_id', 'parentId', 'createUserId', 'title', 'comments._id', 'answers._id',
+                                        'answers.createUsername', 'answers.modifyUsername',
+                                        'comments.createUsername', 'comments.modifyUsername',
+                                        'answers.comments.createUsername', 'answers.comments.modifyUsername',
+                                        'stats.votes.upVoters', 'stats.votes.downVoters', 'stats.flag.flaggers',
+                                        'stats.watch.watchers']
+                    }
+                },
+                data: {
+                    restricted: {
+                        user:           ['answers', 'comments', 'urlId'],
+                        visitor:        ['answers', 'comments', 'urlId']
+                    }
+                }
+            },
+            remove: {
+                access:             ['admin', 'user', 'visitor'],
+                where: {
+                    onlyMine: {
+                        roles:      ['user', 'visitor'],
+                        field:      'createUserId'
+                    }
+                }
+            }
+        },
+
+        // schema for search (if ElasticSearch adapter, uses ES format for type mappings)
+        search: {
+            types:  ['sometype'],
+            fields: {
+                type: { type: 'string', index: 'not_analyzed' }
+            }
+        },
+
+        // this defines how data is copied to other data sources
+        reactions: [
+            {
+                trigger: {
+                    adapters:   ['persist'],
+                    methods:    ['update']
+                },
+                type:           'newItem',
+                target:         'company',
+                name:           'company',
+                slug:           'companySlug'
+            }
+        ],
+
+        // define how/when data archived
+        archive: {
+            criteria: {
+                status: ['deleted', 'rejected']
+            },
+            daysSinceMod: 365
+        },
+
+        // define how/when data purged from the database
+        purge: {
+            daysSinceMod: 600
+        }
+    };
+};
+

@@ -1,0 +1,4 @@
+/**
+ * Home page styles
+ */
+@import '../../common/styles/mixins';

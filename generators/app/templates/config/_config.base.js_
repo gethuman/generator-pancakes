@@ -1,0 +1,8 @@
+/**
+ * Base config file
+ */
+var nconf   = require('nconf');
+
+module.exports = {
+
+};

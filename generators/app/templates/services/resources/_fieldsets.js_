@@ -1,0 +1,26 @@
+/**
+ * Common sets of fields used in different resources
+ */
+module.exports = function () {
+    return {
+        workflow: {
+            status: {
+                type: String,
+                'default': 'created',
+                'enum': [
+                    'created',
+                    'deleted'
+                ]
+            },
+            createDate:     { type: Date, 'default': Date.now },
+            createUserId:   mongo.types.ObjectId,
+            createUsername: String,
+            modifyDate:     { type: Date, 'default': Date.now },
+            modifyUserId:   mongo.types.ObjectId,
+            modifyUsername: String
+        }
+    };
+};
+
+
+

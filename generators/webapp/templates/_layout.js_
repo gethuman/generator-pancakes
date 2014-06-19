@@ -1,0 +1,12 @@
+/**
+ *
+ */
+module.exports = {
+
+    /**
+     * Render the view
+     */
+    view: function (div) {
+        return div('hello, world');
+    }
+};

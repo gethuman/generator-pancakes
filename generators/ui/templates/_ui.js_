@@ -1,0 +1,38 @@
+/**
+ * Home page
+ */
+module.exports = {
+
+//    // set this to isolate scope on the client side
+//    scope: {
+//
+//    },
+
+    /**
+     * Generate the model for the page.
+     */
+    initialModel: function () {
+        return {};
+    },
+
+    /**
+     * Server side processing before response sent back to the client
+     */
+    serverPreProcessor: function () {
+        return false;
+    },
+
+    /**
+     * The client/server view
+     */
+    view: function (div) {
+        return div('hello, world');
+    },
+
+    /**
+     * Client controller
+     */
+    clientController: function () {
+
+    }
+};

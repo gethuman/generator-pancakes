@@ -1,0 +1,16 @@
+/**
+ * Test for a transformer
+ */
+var name        = 'transformers/transName.transformer';
+var taste       = require('../../taste');
+var transformer = taste.flapjack(name);
+
+describe('UNIT ' + name, function () {
+    describe('transform()', function () {
+        it('should modify a pancakes module into a client side module', function () {
+
+            // this will error out to remind you to write tests for this transformer
+            taste.should.exist(undefined);
+        });
+    });
+});

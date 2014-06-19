@@ -1,0 +1,22 @@
+/**
+ * The base environment variables
+ */
+module.exports = {
+
+    // base environment variables that are overridden by environment specific environment variables
+    base: {
+
+    },
+
+    dev: {
+
+    },
+
+    ci: {
+
+    },
+
+    production: {
+
+    }
+};

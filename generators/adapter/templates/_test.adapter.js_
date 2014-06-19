@@ -1,0 +1,16 @@
+/**
+ * Test for an adapter
+ */
+var name    = 'services/adapters/adapterType/adapterName.adapterType.adapter';
+var taste   = require('../../../../taste');
+var adapter = taste.flapjack(name);
+
+describe('INTEGRATION ' + name, function () {
+    describe('find()', function () {
+        it('should test a function call', function () {
+
+            // this will error out to remind you to write tests for this adapter
+            taste.should.exist(undefined);
+        });
+    });
+});

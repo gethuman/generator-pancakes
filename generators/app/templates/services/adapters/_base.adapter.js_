@@ -1,0 +1,31 @@
+/**
+ * Copyright 2014 GetHuman LLC
+ * Author: Jeff Whelpley
+ * Date: 3/21/14
+ *
+ * Base adapter for all services
+ */
+module.exports = function (Q, fieldsets) {
+
+    var BaseAdapter = function () {
+        this.admin = {
+            _id: new fieldsets.newObjectId('000000000000000000000000'),
+            name: 'systemAdmin',
+            type: 'user',
+            role: 'admin'
+        };
+    };
+
+    /**
+     * This is meant to be overridden by any adapter that has an init function.
+     * Some adpaters don't have an init, so this would be used instead and
+     * will simply resolve right away.
+     *
+     * @returns {Q}
+     */
+    BaseAdapter.prototype.init = function () {
+        return new Q();
+    };
+
+    return BaseAdapter;
+};

@@ -1,0 +1,16 @@
+/**
+ * Integration test
+ */
+var name    = 'app/appName/uiTypes/uiName.uiType';
+var taste   = require('../../../../taste');
+var target  = taste.target(name);
+
+describe('INTEGRATION ' + name, function () {
+    describe('someFunction()', function () {
+        it('should have test implemented by you', function () {
+
+            // this will error out to remind you to write tests for this page or partial
+            taste.should.exist(undefined);
+        });
+    });
+});

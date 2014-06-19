@@ -1,0 +1,16 @@
+/**
+ * Test for a module
+ */
+var name    = 'utils/utilName';
+var taste   = require('../../taste');
+var util    = taste.flapjack(name);
+
+describe('UNIT ' + name, function () {
+    describe('someFunction()', function () {
+        it('should have test implemented by you', function () {
+
+            // this will error out to remind you to write tests for this utility
+            taste.should.exist(undefined);
+        });
+    });
+});

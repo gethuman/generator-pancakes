@@ -1,0 +1,33 @@
+/**
+ * Transformer
+ */
+module.exports = function (BaseTransformer) {
+
+    /**
+     * Constructor sets the template by calling the parent constructor
+     * @constructor
+     */
+    var TransNameTransformer = function () {
+        BaseTransformer.call(this, __dirname, 'transName');
+    };
+
+    // inherit all functions from the parent
+    _.extend(TransNameTransformer.prototype, BaseTransformer.prototype);
+
+    /**
+     * Transform a given module
+     * @param originalModule
+     * @param options
+     * @returns {Q}
+     */
+    TransNameTransformer.prototype.transform = function (originalModule, options) {
+        var transformationData = {};
+
+        // load data needed for template here
+
+        return this.template(transformationData);
+    };
+
+    // return a singleton instance of this transformer
+    return new TransNameTransformer();
+};
