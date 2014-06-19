@@ -9,7 +9,7 @@ var mocha       = require('gulp-mocha');
 var jshint      = require('gulp-jshint');
 var watch       = require('gulp-watch');
 
-var alljs = ['test/**/*.js', 'app/**/*.js', 'util/**/*.js'];
+var alljs = ['test/**/*.js', 'generators/**/*.js', 'lib/**/*.js'];
 
 gulp.task('jshint', function () {
     return gulp.src(alljs)

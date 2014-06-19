@@ -1,6 +1,6 @@
 {
   "name": "generator-pancakes",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Yeoman generator for the Pancakes framework",
   "keywords": [
     "yeoman-generator"
@@ -21,8 +21,10 @@
     "test": "mocha"
   },
   "dependencies": {
+    "colors": "^0.6.2",
     "lodash": "^2.4.1",
     "pancakes": "0.0.8",
+    "q": "^1.0.1",
     "yeoman-generator": "^0.17.0"
   },
   "devDependencies": {
