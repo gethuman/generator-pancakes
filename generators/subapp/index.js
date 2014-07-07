@@ -1,1 +1,1 @@
-module.exports = require('./gen.webapp');
+module.exports = require('./gen.subapp');
