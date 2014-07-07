@@ -1,7 +1,8 @@
 /**
  * Generator for new pancakes subapp
  */
-var yeoman = require('yeoman-generator');
+var yeoman  = require('yeoman-generator');
+var helper  = require('../../lib/generator.helper');
 
 module.exports = yeoman.generators.Base.extend({
 
