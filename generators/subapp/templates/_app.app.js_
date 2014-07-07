@@ -6,6 +6,12 @@ module.exports = function () {
         clientDependencies:     [],
         clientEvalAttributes:   [],
         attachToScope:          [],
-        attachToClientScope:    []
+        attachToClientScope:    [],
+        routes: [
+            {
+                urls:   ['/'],
+                name:   'appName.home'
+            }
+        ]
     };
 };

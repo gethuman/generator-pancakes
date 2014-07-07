@@ -1,5 +1,5 @@
 /**
- * Generator for new pancakes web app
+ * Generator for new pancakes subapp
  */
 var yeoman = require('yeoman-generator');
 
@@ -41,7 +41,6 @@ module.exports = yeoman.generators.Base.extend({
      */
     copyFiles: function () {
         this.mkdir('app/' + this.appName);
-        this.copy('_app.app.js_', 'app/' + this.appName + '/' + this.appName + '.app.js');
         this.mkdir('app/' + this.appName + '/filters');
         this.mkdir('app/' + this.appName + '/layouts');
         this.copy('_layout.js_', 'app/' + this.appName + '/layouts/' + this.appName + '.layout.js');
@@ -51,6 +50,12 @@ module.exports = yeoman.generators.Base.extend({
         this.mkdir('app/' + this.appName + '/pages');
         this.mkdir('app/' + this.appName + '/partials');
         this.mkdir('app/' + this.appName + '/utils');
+
+        helper.transform(this,
+            '_app.app.js_',
+            'app/' + this.appName + '/' + this.appName + '.app.js',
+            { appName: this.appName }
+        );
 
         // use ui generator to generate the home page
         this.invoke('pancakes:ui', { options: { appName: this.appName, uiType: 'page', uiName: this.appName + '.home' } });

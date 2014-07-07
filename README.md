@@ -30,7 +30,7 @@ yo pancakes:{subgenerator name}
 
 Where you replace the {subgenerator name} with the name of one of the following subgenerators:
 
-#### webapp
+#### subapp
 
 Create a new web app under the /app folder. For example, GetHuman Answers and GetHuman Solutions are
 two different web apps (called answers and solutions respectively). There will be a number of default
