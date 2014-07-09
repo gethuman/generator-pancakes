@@ -3,6 +3,8 @@
  */
 module.exports = function () {
     return {
+        domain:                 'appName',
+        trackingCode:           null,
         clientDependencies:     [],
         clientEvalAttributes:   [],
         attachToScope:          [],

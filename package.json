@@ -1,6 +1,6 @@
 {
   "name": "generator-pancakes",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Yeoman generator for the Pancakes framework",
   "keywords": [
     "yeoman-generator"
@@ -12,7 +12,7 @@
     "email": "",
     "url": "https://github.com/gethuman"
   },
-  "main": "app/generator.pancakes.js",
+  "main": "generators/app/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/gethuman/generator-pancakes.git"
