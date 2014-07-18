@@ -173,7 +173,7 @@ module.exports = function (_, fieldsets) {
                 notifySuccess: 'nameChange',
                 notifyFailure: 'nameErr'
             }
-        }
+        },
 
         // define how/when data archived
         archive: {

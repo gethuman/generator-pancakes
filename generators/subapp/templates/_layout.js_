@@ -1,12 +1,4 @@
 /**
  *
  */
-module.exports = {
-
-    /**
-     * Render the view
-     */
-    view: function (div) {
-        return div('hello, world');
-    }
-};
+module.exports = require('../../common/layouts/sidebar.layout');
