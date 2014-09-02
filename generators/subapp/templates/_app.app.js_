@@ -6,7 +6,7 @@ module.exports = function () {
         domain:                 'appName',
         trackingCode:           null,
         clientDependencies:     [],
-        clientEvalAttributes:   [],
+        evalAttributes:         [],
         attachToScope:          [],
         attachToClientScope:    [],
         routes: [
