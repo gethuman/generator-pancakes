@@ -22,7 +22,7 @@ var pancakesOpts = {
     require: require,
     preload: ['utils'],
     defaultTransformOptions: {
-        ngPrefix: 'gh',
+        prefix: 'gh',
         clientType: 'ng',
         ngType: 'factory',
         transformer: 'basic',

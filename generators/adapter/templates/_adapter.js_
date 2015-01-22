@@ -1,17 +1,14 @@
 /**
  * Adapter implementation
  */
-module.exports = function (Q, _, BaseAdapter) {
+module.exports = function (Q, _) {
 
     /**
-     * Inherit from BaseAdapter
      * @constructor
      */
-    var AdapterNameAdapter = function () {
-        BaseAdapter.apply(this);
-    };
+    function AdapterNameAdapter() {
 
-    _.extend(AdapterNameAdapter.prototype, BaseAdapter.prototype);
+    }
 
     /**
      * Example method attached to adapter

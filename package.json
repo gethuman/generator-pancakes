@@ -1,6 +1,6 @@
 {
   "name": "generator-pancakes",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "description": "A Yeoman generator for the Pancakes framework",
   "keywords": [
     "yeoman-generator"
@@ -17,28 +17,17 @@
     "type": "git",
     "url": "git://github.com/gethuman/generator-pancakes.git"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "dependencies": {
-    "colors": "^0.6.2",
+    "colors": "^1.0.3",
     "lodash": "^2.4.1",
     "pancakes": "0.0.12",
     "q": "^1.0.1",
-    "yeoman-generator": "^0.17.0"
+    "yeoman-generator": "^0.17.7"
   },
   "devDependencies": {
-    "gulp": "^3.8.1",
-    "mocha": "~1.20.1",
-    "chai": "~1.9.1",
-    "sinon": "^1.10.2",
-    "sinon-chai": "^2.5.0",
-    "mocha-as-promised": "^2.0.0",
-    "chai-as-promised": "^4.1.1",
-    "blanket": "^1.1.6",
-    "gulp-mocha": "^0.4.1",
-    "gulp-watch": "^0.6.6-1",
-    "gulp-jshint": "^1.6.3"
+    "batter": "0.0.9",
+    "gulp": "^3.8.8",
+    "taste": "^0.1.44"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

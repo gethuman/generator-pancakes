@@ -4,31 +4,12 @@
  *
  * Build for the Pancakes Generator
  */
-var gulp        = require('gulp');
-var mocha       = require('gulp-mocha');
-var jshint      = require('gulp-jshint');
-var watch       = require('gulp-watch');
+var gulp    = require('gulp');
+var taste   = require('taste');
+var batter  = require('batter');
 
-var alljs = ['test/**/*.js', 'generators/**/*.js', 'lib/**/*.js'];
-
-gulp.task('jshint', function () {
-    return gulp.src(alljs)
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+batter.whip(gulp, taste, {
+    targetDir:      __dirname,
+    unitTargetCode: ['lib/*.js', 'generators/*.js']
 });
 
-gulp.task('test', function () {
-    return gulp.src('test/**/*.js')
-        .pipe(mocha({
-            growl: true,
-            ui: 'bdd',
-            reporter: 'progress',
-            timeout: 5000
-        }));
-});
-
-gulp.task('watch', function (){
-    gulp.watch(['test/**/*.js', 'lib/**/*.js'], ['jshint', 'test']);
-});
-
-gulp.task('default', ['jshint', 'test']);
