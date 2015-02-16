@@ -1,6 +1,6 @@
 {
   "name": "generator-pancakes",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "A Yeoman generator for the Pancakes framework",
   "keywords": [
     "yeoman-generator"
@@ -19,15 +19,15 @@
   },
   "dependencies": {
     "colors": "^1.0.3",
-    "lodash": "^2.4.1",
-    "pancakes": "0.0.12",
-    "q": "^1.0.1",
-    "yeoman-generator": "^0.17.7"
+    "lodash": "^3.2.0",
+    "pancakes": "0.1.47",
+    "q": "^1.1.2",
+    "yeoman-generator": "^0.18.9"
   },
   "devDependencies": {
-    "batter": "0.0.9",
-    "gulp": "^3.8.8",
-    "taste": "^0.1.44"
+    "batter": "0.0.15",
+    "gulp": "^3.8.11",
+    "taste": "^0.1.48"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
