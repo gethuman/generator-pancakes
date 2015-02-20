@@ -14,14 +14,14 @@ module.exports = function (_, fieldsets) {
         adapters: {
             api:        'persist',
             batch:      'persist',
-            webserver:  'restapi',
-            browser:    'restapi'
+            webserver:  'apiclient',
+            browser:    'apiclient'
         },
 
         // each adapter has a set of methods that can be exposed
         methods: {
             persist:    ['find', 'findById', 'create', 'update', 'remove'],
-            restapi:    ['find', 'findById', 'create', 'update', 'remove'],
+            apiclient:    ['find', 'findById', 'create', 'update', 'remove'],
             realtime:   ['save', 'remove'],
             search:     ['save', 'find', 'remove']
         },
