@@ -1,0 +1,10 @@
+/**
+ * testType test for testName
+ */
+var name    = 'targetPath';
+var taste   = require('../pancakes.taste');
+var target  = taste.flapjack(name);
+
+describe('testType ' + name, function () {
+
+});
