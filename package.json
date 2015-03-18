@@ -1,6 +1,6 @@
 {
   "name": "generator-pancakes",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "A Yeoman generator for the Pancakes framework",
   "keywords": [
     "yeoman-generator"
