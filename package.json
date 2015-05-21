@@ -19,15 +19,15 @@
   },
   "dependencies": {
     "colors": "^1.1.0",
-    "lodash": "^3.8.0",
-    "pancakes": "0.1.68",
-    "q": "^1.4.0",
-    "yeoman-generator": "^0.19.2"
+    "lodash": "^3.9.1",
+    "pancakes": "0.1.72",
+    "q": "^1.4.1",
+    "yeoman-generator": "^0.20.1"
   },
   "devDependencies": {
-    "batter": "0.0.36",
+    "batter": "0.0.38",
     "gulp": "^3.8.11",
-    "taste": "^0.1.62"
+    "taste": "^0.1.64"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
