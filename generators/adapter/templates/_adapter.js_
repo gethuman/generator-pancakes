@@ -15,7 +15,7 @@ module.exports = function (Q, _) {
      */
     AdapterNameAdapter.prototype.find = function (req) {
 
-        return new Q({});
+        return Q.when({});
     };
 
     // return the class
