@@ -20,7 +20,7 @@
   "dependencies": {
     "colors": "^1.1.2",
     "lodash": "^3.9.3",
-    "pancakes": "0.1.84",
+    "pancakes": "0.1.86",
     "q": "^1.4.1",
     "yeoman-generator": "^0.20.1"
   },
