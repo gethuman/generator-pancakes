@@ -20,14 +20,14 @@
   "dependencies": {
     "colors": "^1.1.2",
     "lodash": "^3.10.0",
-    "pancakes": "0.1.91",
+    "pancakes": "0.1.92",
     "q": "^1.4.1",
-    "yeoman-generator": "^0.20.1"
+    "yeoman-generator": "^0.20.2"
   },
   "devDependencies": {
-    "batter": "0.1.4",
+    "batter": "0.1.5",
     "gulp": "^3.9.0",
-    "taste": "^0.2.2"
+    "taste": "^0.2.3"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
